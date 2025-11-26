@@ -14,6 +14,7 @@ public class MinesweeperGame {
         showGameStartComments();
         Scanner scanner = new Scanner(System.in);
         initializeGame();
+
         while (true) {
             showBoard();
             if (gameStatus == 1) {
