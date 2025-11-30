@@ -1,7 +1,7 @@
 package cleancode.minesweeper.tobe.io;
 
 import cleancode.minesweeper.tobe.AppException;
-import cleancode.minesweeper.tobe.Cell;
+import cleancode.minesweeper.tobe.GameBoard;
 
 public class ConsoleOutputHandler {
     public void showGameStartComments() {
@@ -10,12 +10,12 @@ public class ConsoleOutputHandler {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     }
 
-    public void showBoard(Cell[][] board) {
+    public void showBoard(GameBoard board) {
         System.out.println("   a b c d e f g h i j");
-        for (int i = 0; i < board.length; i++) {
-            System.out.printf("%d  ", i + 1);
-            for (int j = 0; j < board[0].length; j++) {
-                System.out.print(board[i][j].getSign() + " ");
+        for (int row = 0; row < board.getRowSize(); row++) {
+            System.out.printf("%d  ", row + 1);
+            for (int col = 0; col < board.getColSize(); col++) {
+                System.out.print(board.getSign(row, col) + " ");
             }
             System.out.println();
         }
