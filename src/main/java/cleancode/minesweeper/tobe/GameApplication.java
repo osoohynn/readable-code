@@ -13,6 +13,7 @@ public class GameApplication {
 
     public static void main(String[] args) {
         MineSweeper mineSweeper = new MineSweeper(new VeryBeginner());
+        mineSweeper.initialize();
         mineSweeper.run();
     }
 }
