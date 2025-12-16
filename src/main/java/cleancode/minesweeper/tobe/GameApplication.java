@@ -1,5 +1,6 @@
 package cleancode.minesweeper.tobe;
 
+import cleancode.minesweeper.tobe.config.GameConfig;
 import cleancode.minesweeper.tobe.gamelevel.Beginner;
 import cleancode.minesweeper.tobe.gamelevel.GameLevel;
 import cleancode.minesweeper.tobe.gamelevel.VeryBeginner;
@@ -15,11 +16,13 @@ public class GameApplication {
         OutputHandler outputHandler = new ConsoleOutputHandler();
         GameLevel gameLevel = new Beginner();
 
-        MineSweeper mineSweeper = new MineSweeper(
+        GameConfig gameConfig = new GameConfig(
                 gameLevel,
                 inputHandler,
                 outputHandler
         );
+
+        MineSweeper mineSweeper = new MineSweeper(gameConfig);
         mineSweeper.initialize();
         mineSweeper.run();
     }
