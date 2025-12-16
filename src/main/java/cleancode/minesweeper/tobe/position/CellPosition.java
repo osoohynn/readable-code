@@ -46,13 +46,13 @@ public class CellPosition {
         return rowIndex;
     }
 
-    public int getColumnIndex() {
+    public int getColIndex() {
         return columnIndex;
     }
 
     public boolean canCalculatePositionBy(RelativePosition relativePosition) {
         return getRowIndex() + relativePosition.getDeltaRow() >= 0
-                && getColumnIndex() + relativePosition.getDeltaCol() >= 0;
+                && getColIndex() + relativePosition.getDeltaCol() >= 0;
     }
 
     public boolean isRowIndexLessThan(int rowIndex) {
