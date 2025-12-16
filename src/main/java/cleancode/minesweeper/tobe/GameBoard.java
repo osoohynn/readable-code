@@ -1,6 +1,7 @@
 package cleancode.minesweeper.tobe;
 
 import cleancode.minesweeper.tobe.cell.Cell;
+import cleancode.minesweeper.tobe.cell.CellSnapshot;
 import cleancode.minesweeper.tobe.cell.Cells;
 import cleancode.minesweeper.tobe.cell.EmptyCell;
 import cleancode.minesweeper.tobe.cell.LandMineCell;
@@ -22,6 +23,11 @@ public class GameBoard {
         board = new Cell[rowSize][colSize];
 
         this.landMineCount = gameLevel.getLandMineCount();
+    }
+
+    public CellSnapshot getSnapshot(CellPosition cellPosition) {
+        Cell cell = findCell(cellPosition);
+        return cell.getSnapshot();
     }
 
     public void initializeGame() {
@@ -118,10 +124,6 @@ public class GameBoard {
 
     public int getColSize() {
         return board[0].length;
-    }
-
-    public String getSign(CellPosition cellPosition) {
-        return findCell(cellPosition).getSign();
     }
 
     private Cell findCell(CellPosition cellPosition) {
