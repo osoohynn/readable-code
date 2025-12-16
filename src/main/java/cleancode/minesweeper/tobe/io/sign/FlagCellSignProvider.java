@@ -4,6 +4,8 @@ import cleancode.minesweeper.tobe.cell.CellSnapshot;
 import cleancode.minesweeper.tobe.cell.CellSnapshotStatus;
 
 public class FlagCellSignProvider implements CellSignProvidable {
+    private static final String FLAG_SIGN = "⚑";
+
     @Override
     public boolean supports(CellSnapshot cellSnapshot) {
         return cellSnapshot.isSameStatus(CellSnapshotStatus.FLAG);
