@@ -12,6 +12,7 @@ import cleancode.minesweeper.tobe.minesweeper.board.position.CellPositions;
 import cleancode.minesweeper.tobe.minesweeper.board.position.RelativePosition;
 
 import java.util.List;
+import java.util.Stack;
 
 public class GameBoard {
     private final Cell[][] board;
@@ -144,6 +145,17 @@ public class GameBoard {
     }
 
     private void openSurroundedCells(CellPosition cellPosition) {
+        Stack<CellPosition> stack = new Stack<>();
+        stack.push(cellPosition);
+
+        while (!stack.isEmpty()) {
+            openAndPushCellAt(stack);
+        }
+    }
+
+    private void openAndPushCellAt(Stack<CellPosition> stack) {
+        CellPosition cellPosition = stack.pop();
+
         if (isOpenedCell(cellPosition)) {
             return;
         }
@@ -158,7 +170,7 @@ public class GameBoard {
         }
 
         calculateSurroundedPosition(cellPosition, getRowSize(), getColSize())
-                .forEach(this::openSurroundedCells);
+                .forEach(stack::push);
     }
 
     private void openOneCellAt(CellPosition cellPosition) {
