@@ -1,18 +1,15 @@
 package cleancode.minesweeper.tobe.minesweeper.io;
 
-import cleancode.minesweeper.tobe.minesweeper.exception.AppException;
 import cleancode.minesweeper.tobe.minesweeper.board.GameBoard;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
-import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignFinder;
-import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
 import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
+import cleancode.minesweeper.tobe.minesweeper.exception.AppException;
+import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class ConsoleOutputHandler implements OutputHandler {
-    CellSignFinder cellSignFinder = new CellSignFinder();
-
     @Override
     public void showGameStartComments() {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -38,6 +35,7 @@ public class ConsoleOutputHandler implements OutputHandler {
             }
             System.out.println();
         }
+        System.out.println("남은 지뢰 수: " + board.getLandMineCount());
         System.out.println();
     }
 
@@ -67,7 +65,7 @@ public class ConsoleOutputHandler implements OutputHandler {
 
     @Override
     public void showCommentForUserAction() {
-        System.out.println("선택한 셀에 대한 행위를 선택하세요. (1: 오픈, 2: 깃발 꽂기)");
+        System.out.println("선택한 셀에 대한 행위를 선택하세요. (1: 오픈, 2: 깃발 꽂기, 3. 깃발 취소)");
     }
 
     @Override
