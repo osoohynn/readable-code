@@ -9,6 +9,8 @@ public interface Cell {
 
     void flag();
 
+    void unflag();
+
     void open();
 
     boolean isChecked();

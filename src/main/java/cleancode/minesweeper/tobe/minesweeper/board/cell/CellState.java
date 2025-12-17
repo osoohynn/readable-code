@@ -17,6 +17,10 @@ public class CellState {
         this.isFlagged = true;
     }
 
+    public void unflag() {
+        this.isFlagged = false;
+    }
+
     public void open() {
         this.isOpened = true;
     }

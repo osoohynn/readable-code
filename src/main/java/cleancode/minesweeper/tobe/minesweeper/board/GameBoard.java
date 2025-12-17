@@ -59,6 +59,11 @@ public class GameBoard {
         checkIfGameIsOver();
     }
 
+    public void unflagAt(CellPosition cellPosition) {
+        Cell cell = findCell(cellPosition);
+        cell.unflag();
+    }
+
     public boolean isInvalidCellPosition(CellPosition cellPosition) {
         int rowSize = getRowSize();
         int colSize = getColSize();
@@ -202,5 +207,9 @@ public class GameBoard {
 
     private Cell findCell(CellPosition cellPosition) {
         return board[cellPosition.getRowIndex()][cellPosition.getColIndex()];
+    }
+
+    public int getLandMineCount() {
+        return landMineCount;
     }
 }

@@ -30,6 +30,11 @@ public class EmptyCell implements Cell {
     }
 
     @Override
+    public void unflag() {
+        cellState.unflag();
+    }
+
+    @Override
     public void open() {
         cellState.open();
     }

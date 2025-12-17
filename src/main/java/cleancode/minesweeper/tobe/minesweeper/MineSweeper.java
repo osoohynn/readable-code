@@ -10,6 +10,12 @@ import cleancode.minesweeper.tobe.minesweeper.io.InputHandler;
 import cleancode.minesweeper.tobe.minesweeper.io.OutputHandler;
 import cleancode.minesweeper.tobe.minesweeper.user.UserAction;
 
+/**
+ * TODO 1. 남은 지뢰 수 표시 >
+ * TODO 2. 깃발 제거 기능
+ * TODO 3. 패배 시 모든 지뢰 위치 표시
+ * */
+
 public class MineSweeper implements GameRunnable, GameInitializable {
     private final GameBoard gameBoard;
     private final InputHandler inputHandler;
@@ -79,7 +85,16 @@ public class MineSweeper implements GameRunnable, GameInitializable {
             return;
         }
 
+        if (doesUserChooseToUnflagCell(userAction)) {
+            gameBoard.unflagAt(cellPosition);
+            return;
+        }
+
         throw new AppException("잘못된 번호를 선택하셨습니다.");
+    }
+
+    private boolean doesUserChooseToUnflagCell(UserAction userAction) {
+        return userAction == UserAction.UNFLAG;
     }
 
     private boolean doesUserChooseToOpenCell(UserAction userAction) {

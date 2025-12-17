@@ -2,7 +2,7 @@ package cleancode.minesweeper.tobe;
 
 import cleancode.minesweeper.tobe.minesweeper.MineSweeper;
 import cleancode.minesweeper.tobe.minesweeper.config.GameConfig;
-import cleancode.minesweeper.tobe.minesweeper.gamelevel.Advanced;
+import cleancode.minesweeper.tobe.minesweeper.gamelevel.Beginner;
 import cleancode.minesweeper.tobe.minesweeper.gamelevel.GameLevel;
 import cleancode.minesweeper.tobe.minesweeper.io.ConsoleInputHandler;
 import cleancode.minesweeper.tobe.minesweeper.io.ConsoleOutputHandler;
@@ -14,7 +14,7 @@ public class GameApplication {
     public static void main(String[] args) {
         InputHandler inputHandler = new ConsoleInputHandler();
         OutputHandler outputHandler = new ConsoleOutputHandler();
-        GameLevel gameLevel = new Advanced();
+        GameLevel gameLevel = new Beginner();
 
         GameConfig gameConfig = new GameConfig(
                 gameLevel,
