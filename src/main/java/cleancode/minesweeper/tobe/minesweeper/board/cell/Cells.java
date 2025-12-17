@@ -26,4 +26,8 @@ public class Cells {
         return cells.stream()
                 .allMatch(Cell::isChecked);
     }
+
+    public void openAll() {
+        cells.forEach(Cell::open);
+    }
 }

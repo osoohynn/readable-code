@@ -43,7 +43,7 @@ public class GameBoard {
 
     public void openAt(CellPosition cellPosition) {
         if (isLandMineCellAt(cellPosition)) {
-            openOneCellAt(cellPosition);
+            openAllCells();
             changeGameStatusToLose();
             return;
         }
@@ -169,6 +169,11 @@ public class GameBoard {
     private void openOneCellAt(CellPosition cellPosition) {
         Cell cell = findCell(cellPosition);
         cell.open();
+    }
+
+    private void openAllCells() {
+        Cells cells = Cells.from(board);
+        cells.openAll();
     }
 
     private boolean isOpenedCell(CellPosition cellPosition) {
